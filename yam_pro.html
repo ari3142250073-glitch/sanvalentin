@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Yam 💘</title>
+
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px 20px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 22px;
+      color: #444;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    button {
+      background-color: #ff4d88;
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    button:hover {
+      background-color: #ff1a66;
+    }
+
+    #mensajeFinal {
+      display: none;
+      margin-top: 40px;
+      font-size: 26px;
+      color: #c2185b;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #contador {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #a0004f;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Hola Yam 💕</h1>
+
+  <p>
+    No soy muy bueno expresando todo lo que siento con palabras,
+    pero quiero intentarlo contigo.<br><br>
+
+    Desde que llegaste a mi vida, los días se sienten distintos,
+    más tranquilos, más felices y más reales.
+    Me gusta compartir contigo los momentos simples,
+    las risas inesperadas y hasta los silencios.<br><br>
+
+    No hablo solo de un día especial,
+    hablo de todos los días que vienen,
+    de cada 14 de febrero y de todos los días que no lo son,
+    pero que contigo se sienten igual de importantes.
+  </p>
+
+  <button onclick="aceptar()">Sí 💖</button>
+
+  <div id="mensajeFinal">
+    💘 <strong>Quiero que seas todos mi 14 de febrero</strong> 💘<br><br>
+    Y que sigamos sumando días, momentos y recuerdos juntos.
+    <div id="contador"></div>
+  </div>
+
+  <script>
+    function aceptar() {
+      document.getElementById("mensajeFinal").style.display = "block";
+      crearCorazones();
+      iniciarContador();
+    }
+
+    function crearCorazones() {
+      for (let i = 0; i < 30; i++) {
+        let corazon = document.createElement("div");
+        corazon.innerHTML = "💖";
+        corazon.style.position = "fixed";
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.top = "-10px";
+        corazon.style.fontSize = (20 + Math.random() * 30) + "px";
+        corazon.style.animation = "caer 3s linear infinite";
+        document.body.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 3000);
+      }
+    }
+
+    function iniciarContador() {
+      const fechaInicio = new Date(2026, 1, 9); // 09/02/2026
+      const hoy = new Date();
+      const diferencia = hoy - fechaInicio;
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+      document.getElementById("contador").innerHTML =
+        "Llevamos " + dias + " días compartiendo este camino 💞";
+    }
+  </script>
+
+</body>
+</html>
